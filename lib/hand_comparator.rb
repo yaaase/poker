@@ -70,7 +70,7 @@ class HandComparator
   end
 
   def determine_hand_ranks hand_one, hand_two
-    one = two = 0
+    one, two = 0, 0
     HANDS.each_with_index do |hand, val|
       if hand_one.send(hand)
         one = (val + 1)
