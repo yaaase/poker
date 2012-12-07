@@ -82,7 +82,7 @@ class Hand
 
   private
 
-  def unique_sets size, &block
+  def unique_sets quantity, &block
     {}.tap do |hash|
       @ranks.each do |rank|
         hash[rank] ||= 0
@@ -90,6 +90,6 @@ class Hand
       end
     end.values.select do |value|
       yield value
-    end.size == size
+    end.size == quantity
   end
 end
