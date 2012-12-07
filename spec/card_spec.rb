@@ -1,4 +1,4 @@
-require_relative '../lib/pe54_card'
+require_relative '../lib/card'
 
 describe Card do
 

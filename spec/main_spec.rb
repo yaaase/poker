@@ -1,4 +1,4 @@
-require_relative '../lib/pe54'
+require_relative '../lib/main'
 
 describe ProblemFiftyFour do
   before(:all) { @p = ProblemFiftyFour.new }
