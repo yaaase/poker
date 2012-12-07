@@ -1,23 +1,23 @@
 require_relative '../lib/hand'
 
 describe Hand do
-  CARDS = {
-    "A" => "ace",
-    "2" => "two",
-    "3" => "three",
-    "4" => "four",
-    "5" => "five",
-    "6" => "six",
-    "7" => "seven",
-    "8" => "eight",
-    "9" => "nine",
-    "T" => "ten",
-    "J" => "jack",
-    "Q" => "queen",
-    "K" => "king"
-  }
-
   before(:all) do
+    CARDS = {
+      "A" => "ace",
+      "2" => "two",
+      "3" => "three",
+      "4" => "four",
+      "5" => "five",
+      "6" => "six",
+      "7" => "seven",
+      "8" => "eight",
+      "9" => "nine",
+      "T" => "ten",
+      "J" => "jack",
+      "Q" => "queen",
+      "K" => "king"
+    }
+
     %w[A 2 3 4 5 6 7 8 9 T J Q K].each do |rank|
       %w[S D C H].each do |suit|
         eval "@#{CARDS[rank]}_#{suit.downcase} = Card.new(rank, suit)"
