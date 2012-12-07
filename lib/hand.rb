@@ -28,7 +28,7 @@ class Hand
   end
 
   def straight
-    return [5] if @ranks == [2,3,4,5,14]
+    return [5] if @ranks == [2,3,4,5,14] # A2345 is a straight
     @ranks.each_with_index do |rank, index|
       return nil unless rank + 1 == (@ranks[index + 1] || rank + 1)
     end
