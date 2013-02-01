@@ -66,12 +66,7 @@ class Hand
   end
 
   def sets_of num
-    {}.tap do |hash|
-      @ranks.each do |rank|
-        hash[rank] ||= 0
-        hash[rank] += 1
-      end
-    end.select do |key, val|
+    generate_rank_hash.select do |key, val|
       val == num
     end.keys
   end
@@ -83,13 +78,17 @@ class Hand
   private
 
   def unique_sets quantity, &block
+    generate_rank_hash.values.select do |value|
+      yield value
+    end.size == quantity
+  end
+
+  def generate_rank_hash
     {}.tap do |hash|
       @ranks.each do |rank|
         hash[rank] ||= 0
         hash[rank] += 1
       end
-    end.values.select do |value|
-      yield value
-    end.size == quantity
+    end
   end
 end
