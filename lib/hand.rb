@@ -3,7 +3,7 @@ require_relative './card'
 class Hand
   attr_reader :ranks, :cards
 
-  def initialize cards
+  def initialize(cards)
     @cards = cards
     @ranks = cards.map(&:rank).sort
     @suits = cards.map(&:suit)
@@ -65,19 +65,19 @@ class Hand
     end
   end
 
-  def sets_of num
+  def sets_of(num)
     generate_rank_hash.select do |key, val|
       val == num
     end.keys
   end
 
-  def == other
+  def ==(other)
     @cards == other.cards
   end
 
   private
 
-  def unique_sets quantity, &block
+  def unique_sets(quantity, &block)
     generate_rank_hash.values.select do |value|
       yield value
     end.size == quantity

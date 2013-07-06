@@ -24,11 +24,11 @@ class Card
     "C" => :club
   }
 
-  def initialize rank, suit
+  def initialize(rank, suit)
     @rank, @suit = CARD_RANKS[rank], SUITS[suit]
   end
 
-  def == other
+  def ==(other)
     @rank == other.rank && @suit == other.suit
   end
 end
