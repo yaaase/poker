@@ -84,9 +84,8 @@ class Hand
   end
 
   def generate_rank_hash
-    {}.tap do |hash|
+    Hash.new(0).tap do |hash|
       @ranks.each do |rank|
-        hash[rank] ||= 0
         hash[rank] += 1
       end
     end
